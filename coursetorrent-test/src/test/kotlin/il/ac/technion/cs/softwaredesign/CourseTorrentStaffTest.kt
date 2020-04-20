@@ -10,7 +10,7 @@ import org.junit.jupiter.api.assertDoesNotThrow
 
 class CourseTorrentStaffTest {
     private val torrent = CourseTorrent()
-    private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readText()
+    private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readBytes()
 
     @Test
     fun `after load, infohash calculated correctly`() {
