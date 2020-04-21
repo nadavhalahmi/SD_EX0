@@ -1,6 +1,7 @@
 //TODO: replace Any with union of dict, list, int, string
 
 class TorrentParser {
+    private val charset = Charsets.UTF_8
     /**
      * [torrent]: the torrent to parse
      * [startIndex]: the start index of the element
@@ -46,6 +47,7 @@ class TorrentParser {
         assert(torrent[index].toChar() in '1'..'9')
         var pairLen = 0
         var res: Pair<String, Int> = parseElement(torrent, index) {torrent[it].toChar() == ':'}
+        //use val elemLen = res.first.toString(charset).toInt() if res.first is ByteArray
         val elemLen = res.first.toInt()
         val elemStartIndex = index+res.second+1 //pass elemLen and ':' sign
         pairLen += res.second+1
@@ -103,6 +105,7 @@ class TorrentParser {
         assert(torrent[startIndex].toChar() == 'i')
         val res = parseElement(torrent, startIndex+1) {torrent[it].toChar() == 'e'}
         return Pair(res.first.toInt(), res.second+2) //+2 for i and e
+        //use res.first.toString(charset).toInt() in order to get int value
     }
 
 
@@ -111,5 +114,40 @@ class TorrentParser {
             'd' -> return parseDict(torrent, 0).first
         }
         return hashMapOf()
+    }
+
+    fun encode(torrent: Any?): ByteArray {
+        var res: ByteArray
+        when(torrent){
+             is Map<*,*> -> {
+                res = "d".toByteArray()
+                torrent.forEach {
+                    res += encode(it.key)
+                    res += encode(it.value)
+                }
+                res += "e".toByteArray()
+            }
+            is List<*> -> {
+                res = "l".toByteArray()
+                torrent.forEach {
+                    res += encode(it)
+                }
+                res += "e".toByteArray()
+            }
+            is Int ->{
+                res = "i".toByteArray()
+                res += torrent.toString().toByteArray()
+                res += "e".toByteArray()
+            }
+            is String ->{
+                res = torrent.length.toString().toByteArray()
+                res += ":".toByteArray()
+                res += torrent.toByteArray()
+            }
+            else ->{
+                throw Exception("encode error")
+            }
+        }
+        return res
     }
 }

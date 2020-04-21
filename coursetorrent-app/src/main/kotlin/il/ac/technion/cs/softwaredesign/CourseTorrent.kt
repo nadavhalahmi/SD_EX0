@@ -1,5 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
+import TorrentParser
+import java.security.MessageDigest
+
 /**
  * This is the class implementing CourseTorrent, a BitTorrent client.
  *
@@ -20,8 +23,12 @@ class CourseTorrent {
      * @return The infohash of the torrent, i.e., the SHA-1 of the `info` key of [torrent].
      */
     fun load(torrent: ByteArray): String {
-
-        return torrent.toString()
+        val parser = TorrentParser()
+        val dict = parser.parse(torrent)
+        //val info = parser.decode(dict["info"])
+        val info = dict["info"] as Map<*,*>
+        //MessageDigest.getInstance("SHA-1").digest(info as ByteArray?)
+        return dict.toString()
     }
 
     /**

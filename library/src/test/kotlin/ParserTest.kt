@@ -14,6 +14,8 @@ class ParserTest {
     private val emptyDictRes = mapOf<String, Any>()
     private val dictWithEmptyListTorrent = "d3:onelee"
     private val dictWithEmptyListRes = mapOf<String, Any>("one" to listOf<Any>())
+    private val dictWithLongIntTorrent = "d1:ai123ee"
+    private val dictWithLongIntRes = mapOf<String, Any>("a" to 123)
 
     @Test
     fun `empty dict`() {
@@ -34,6 +36,13 @@ class ParserTest {
         val dict = parser.parse(dictWithIntsTorrent.toByteArray())
 
         assert(dict == dictWithIntsRes)
+    }
+
+    @Test
+    fun `dict with long single int`() {
+        val dict = parser.parse(dictWithLongIntTorrent.toByteArray())
+
+        assert(dict == dictWithLongIntRes)
     }
 
     @Test
