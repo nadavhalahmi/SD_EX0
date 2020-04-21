@@ -19,7 +19,10 @@ class CourseTorrent {
      * @throws IllegalStateException If the infohash of [torrent] is already loaded.
      * @return The infohash of the torrent, i.e., the SHA-1 of the `info` key of [torrent].
      */
-    fun load(torrent: ByteArray): String = TODO("Implement me!")
+    fun load(torrent: ByteArray): String {
+
+        return torrent.toString()
+    }
 
     /**
      * Remove the torrent identified by [infohash] from the system.
