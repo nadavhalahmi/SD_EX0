@@ -25,10 +25,8 @@ class CourseTorrent {
     fun load(torrent: ByteArray): String {
         val parser = TorrentParser()
         val dict = parser.parse(torrent)
-        //val info = parser.decode(dict["info"])
-        val info = dict["info"] as Map<*,*>
-        //MessageDigest.getInstance("SHA-1").digest(info as ByteArray?)
-        return dict.toString()
+        val info = parser.encode(dict["info"])
+        return parser.SHAsum(info)
     }
 
     /**

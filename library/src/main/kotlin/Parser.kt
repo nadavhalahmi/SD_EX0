@@ -1,7 +1,26 @@
+import java.security.MessageDigest
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+
 //TODO: replace Any with union of dict, list, int, string
 
 class TorrentParser {
     private val charset = Charsets.UTF_8
+
+    fun SHAsum(convertme: ByteArray) : String{
+        var md = MessageDigest.getInstance("SHA-1");
+        return byteArray2Hex(md.digest(convertme));
+    }
+
+    fun byteArray2Hex(hash: ByteArray) : String{
+        var formatter = Formatter();
+        for (b in hash) {
+            formatter.format("%02x", b);
+        }
+        return formatter.toString();
+    }
+
     /**
      * [torrent]: the torrent to parse
      * [startIndex]: the start index of the element
@@ -121,7 +140,7 @@ class TorrentParser {
         when(torrent){
              is Map<*,*> -> {
                 res = "d".toByteArray()
-                torrent.forEach {
+                for (it in torrent){
                     res += encode(it.key)
                     res += encode(it.value)
                 }
@@ -129,7 +148,7 @@ class TorrentParser {
             }
             is List<*> -> {
                 res = "l".toByteArray()
-                torrent.forEach {
+                for (it in torrent) {
                     res += encode(it)
                 }
                 res += "e".toByteArray()

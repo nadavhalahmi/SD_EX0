@@ -12,18 +12,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 
-fun SHAsum(convertme: ByteArray) : String{
-    var md = MessageDigest.getInstance("SHA-1");
-    return byteArray2Hex(md.digest(convertme));
-}
 
-fun byteArray2Hex(hash: ByteArray) : String{
-    var formatter = Formatter();
-    for (b in hash) {
-        formatter.format("%02x", b);
-    }
-    return formatter.toString();
-}
 
 
 class CourseTorrentStaffTest {
