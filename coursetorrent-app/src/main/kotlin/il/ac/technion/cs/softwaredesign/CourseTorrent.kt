@@ -24,11 +24,9 @@ class CourseTorrent {
      */
     fun load(torrent: ByteArray): String {
         val parser = TorrentParser()
-        val dict = parser.parse(torrent)
-        val info = parser.encode(dict["info"])
-        val infoDict = torrent.copyOfRange(447, torrent.size-1)
-        //return parser.SHAsum(info)
-        return parser.SHAsum(infoDict)
+        val res = parser.getValueByKey(torrent, "info")
+        //val infoDict = torrent.copyOfRange(447, torrent.size-1)
+        return parser.SHAsum(res)
     }
 
     /**
