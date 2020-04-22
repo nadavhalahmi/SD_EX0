@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-04-21T18:13:40" hostname="TP13-01" time="0.098">
+<testsuite name="ParserTest" tests="14" skipped="0" failures="0" errors="0" timestamp="2020-04-22T11:07:11" hostname="TP13-01" time="0.146">
   <properties/>
-  <testcase name="dict with long single int()" classname="ParserTest" time="0.035"/>
-  <testcase name="dict with empty list()" classname="ParserTest" time="0.003"/>
-  <testcase name="empty dict()" classname="ParserTest" time="0.001"/>
-  <testcase name="dict with int()" classname="ParserTest" time="0.001"/>
-  <testcase name="encode test 1()" classname="ParserTest" time="0.003"/>
-  <testcase name="encode test 2()" classname="ParserTest" time="0.004"/>
-  <testcase name="encode test 3()" classname="ParserTest" time="0.002"/>
+  <testcase name="dict with long single int()" classname="ParserTest" time="0.033"/>
+  <testcase name="dict with empty list()" classname="ParserTest" time="0.004"/>
+  <testcase name="empty dict()" classname="ParserTest" time="0.003"/>
+  <testcase name="dict with int()" classname="ParserTest" time="0.005"/>
+  <testcase name="encode test 1()" classname="ParserTest" time="0.002"/>
+  <testcase name="encode test 2()" classname="ParserTest" time="0.002"/>
+  <testcase name="encode test 3()" classname="ParserTest" time="0.004"/>
   <testcase name="encode test 4()" classname="ParserTest" time="0.002"/>
-  <testcase name="encode test 5()" classname="ParserTest" time="0.002"/>
+  <testcase name="encode test 5()" classname="ParserTest" time="0.006"/>
   <testcase name="encode test 6()" classname="ParserTest" time="0.002"/>
-  <testcase name="encode test 7()" classname="ParserTest" time="0.008"/>
-  <testcase name="dict with list()" classname="ParserTest" time="0.002"/>
-  <testcase name="full check simple strings dict()" classname="ParserTest" time="0.001"/>
+  <testcase name="encode test 7()" classname="ParserTest" time="0.006"/>
+  <testcase name="dict with list()" classname="ParserTest" time="0.018"/>
+  <testcase name="full check simple strings dict()" classname="ParserTest" time="0.003"/>
   <testcase name="dict of dicts()" classname="ParserTest" time="0.002"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>

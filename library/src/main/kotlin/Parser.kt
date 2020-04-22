@@ -75,7 +75,7 @@ class TorrentParser {
         pairLen += res.second
         return Pair(elem, pairLen)
     }
-    private fun parseList(torrent: ByteArray, startIndex: Int): Pair<List<Any>, Int>{
+    fun parseList(torrent: ByteArray, startIndex: Int = 0): Pair<List<Any>, Int>{
         assert(torrent[startIndex].toChar() == 'l')
         val lst = ArrayList<Any>()
         var index = startIndex+1 //pass 'l'

@@ -1,7 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
+import DB_Manager
 import TorrentParser
-import java.security.MessageDigest
+import kotlin.IllegalArgumentException as IllegalArgumentException1
 
 /**
  * This is the class implementing CourseTorrent, a BitTorrent client.
@@ -10,6 +11,8 @@ import java.security.MessageDigest
  * + Parsing torrent metainfo files (".torrent" files)
  */
 class CourseTorrent {
+    private val dbManager = DB_Manager()
+    private val parser = TorrentParser()
     /**
      * Load in the torrent metainfo file from [torrent]. The specification for these files can be found here:
      * [Metainfo File Structure](https://wiki.theory.org/index.php/BitTorrentSpecification#Metainfo_File_Structure).
@@ -18,15 +21,22 @@ class CourseTorrent {
      *
      * This is a *create* command.
      *
-     * @throws IllegalArgumentException If [torrent] is not a valid metainfo file.
+     * @throws IllegalArgumentException1 If [torrent] is not a valid metainfo file.
      * @throws IllegalStateException If the infohash of [torrent] is already loaded.
      * @return The infohash of the torrent, i.e., the SHA-1 of the `info` key of [torrent].
      */
     fun load(torrent: ByteArray): String {
-        val parser = TorrentParser()
-        val res = parser.getValueByKey(torrent, "info")
-        //val infoDict = torrent.copyOfRange(447, torrent.size-1)
-        return parser.SHAsum(res)
+        val infoValue: ByteArray
+        try {
+            infoValue = parser.getValueByKey(torrent, "info")
+        }catch (e: Exception){
+            throw IllegalArgumentException1()
+        }
+        val infohash = parser.SHAsum(infoValue)
+        if(dbManager.get(infohash) != null)
+            throw IllegalStateException()
+        dbManager.add(infohash, torrent)
+        return infohash
     }
 
     /**
@@ -34,9 +44,13 @@ class CourseTorrent {
      *
      * This is a *delete* command.
      *
-     * @throws IllegalArgumentException If [infohash] is not loaded.
+     * @throws IllegalArgumentException1 If [infohash] is not loaded.
      */
-    fun unload(infohash: String): Unit = TODO("Implement me!")
+    fun unload(infohash: String): Unit {
+        if(dbManager.get(infohash) == null)
+            throw IllegalArgumentException1()
+        dbManager.delete(infohash)
+    }
 
     /**
      * Return the announce URLs for the loaded torrent identified by [infohash].
@@ -48,8 +62,14 @@ class CourseTorrent {
      *
      * This is a *read* command.
      *
-     * @throws IllegalArgumentException If [infohash] is not loaded.
+     * @throws IllegalArgumentException1 If [infohash] is not loaded.
      * @return Tier lists of announce URLs.
      */
-    fun announces(infohash: String): List<List<String>> = TODO("Implement me!")
+    fun announces(infohash: String): List<List<String>> {
+        val torrent: ByteArray = dbManager.get(infohash) ?: throw IllegalArgumentException1()
+
+        val announe_list = parser.getValueByKey(torrent, "announce-list")
+
+        return parser.parseList(announe_list).first as List<List<String>>
+    }
 }
