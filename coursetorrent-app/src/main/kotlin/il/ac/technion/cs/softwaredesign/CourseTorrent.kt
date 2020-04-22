@@ -26,7 +26,9 @@ class CourseTorrent {
         val parser = TorrentParser()
         val dict = parser.parse(torrent)
         val info = parser.encode(dict["info"])
-        return parser.SHAsum(info)
+        val infoDict = torrent.copyOfRange(447, torrent.size-1)
+        //return parser.SHAsum(info)
+        return parser.SHAsum(infoDict)
     }
 
     /**
