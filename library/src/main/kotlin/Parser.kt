@@ -150,62 +150,6 @@ class TorrentParser {
         throw Exception("Torrent should start with dict")
     }
 
-//    fun getBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray{
-//        val res : TorrentElement
-//        when(torrent[startIndex].toChar()){
-//            in '0'..'9'-> return getStringBencodedValue(torrent, startIndex)
-//            'd' ->{
-//                res = parseDict(torrent, startIndex)
-//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
-//            }
-//            'l' ->{
-//                res = parseList(torrent, startIndex)
-//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
-//            }
-//            'i' ->{
-//                res = parseInt(torrent, startIndex)
-//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
-//            }
-//            else -> throw Exception("not a valid value")
-//        }
-//    }
-//
-//    private fun getStringBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray {
-//        val res = parseString(torrent, startIndex)
-//        return torrent.copyOfRange(res.startIndex(), res.endIndex())
-//    }
-//
-//    fun getValueByKey(torrent: ByteArray, key: String): ByteArray{
-//        assert(torrent[0].toChar() == 'd')
-//        val dict = HashMap<String, Any>()
-//        var index = 1
-//        var curr_key: String
-//        var res: TorrentElement
-//        var len = 1
-//        var found = false
-//        while(torrent[index].toChar() != 'e'){
-//            when(torrent[index].toChar()){
-//                in '0'..'9' -> {
-//                    res = parseString(torrent, index)
-//                    curr_key = res.value() as String
-//                    if(curr_key == key)
-//                        found = true
-//                    index += res.len()
-//                    len += res.len()
-//                }
-//                else -> throw Exception("DictKeyShouldBeString")
-//            }
-//            if(found)
-//                return getBencodedValue(torrent, index)
-//            res = parseValue(torrent, index)
-//            dict[key] = res.value()
-//            index += res.len()
-//            len += res.len()
-//        }
-//        assert(torrent[index].toChar() == 'e')
-//        len++ //pass 'e'
-//        throw Exception("key not found")
-//    }
 
 //    fun encode(torrent: Any?): ByteArray {
 //        var res: ByteArray

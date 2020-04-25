@@ -8,6 +8,7 @@ val mockkVersion: String? by extra
 dependencies {
     implementation(project(":library"))
     implementation(project(":coursetorrent-app"))
+    implementation("il.ac.technion.cs.softwaredesign:primitive-storage-layer:1.0.1")
 
     testImplementation("org.junit.jupiter", "junit-jupiter-api", junitVersion)
     testImplementation("org.junit.jupiter", "junit-jupiter-params", junitVersion)

@@ -9,25 +9,27 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
 //        write(key, value)
 //    }
 
-    fun add(key: String, value: ByteArray){
-        val my_key = key.toByteArray(charset)
-        write(my_key, value)
-        //my_db[key] = value
+    fun add(hash: String, value: ByteArray, dict: TorrentDict){
+        val hashBytes = hash.toByteArray(charset)
+        write(hashBytes, value)
+        for(key in dict.keys) {
+            val range = dict.getRange(key)
+            write((hash + key).toByteArray(), value.copyOfRange(range.startIndex(), range.endIndex()))
+        }
     }
 
-    fun get(key: String): ByteArray? {
-        val res = read(key.toByteArray(charset))
+    fun get(hash: String, key: String = ""): ByteArray? {
+        val res = read((hash).toByteArray(charset))
         if(res == null || res.size==0)
             return null
-        return res
-        //return my_db
+        return read((hash+key).toByteArray(charset))
     }
 
-    fun get(key: ByteArray): ByteArray? {
-        val res = read(key)
+    fun get(hash: ByteArray, key: String = ""): ByteArray? {
+        val res = read(hash)
         if(res == null || res.size==0)
             return null
-        return res
+        return read(hash+key.toByteArray(charset))
     }
 
     fun delete(key: String): Unit {

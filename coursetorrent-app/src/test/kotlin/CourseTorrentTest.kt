@@ -6,6 +6,9 @@ import com.natpryce.hamkrest.assertion.assertThat
 import com.natpryce.hamkrest.equalTo
 import com.natpryce.hamkrest.hasElement
 import com.natpryce.hamkrest.hasSize
+import il.ac.technion.cs.softwaredesign.storage.read
+import il.ac.technion.cs.softwaredesign.storage.write
+
 import io.mockk.every
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
@@ -15,24 +18,34 @@ import java.security.NoSuchAlgorithmException;
 import java.util.Formatter;
 import io.mockk.mockk
 import io.mockk.mockkStatic
+import io.mockk.slot
 
 
 class CourseTorrentTest {
     private val torrent = CourseTorrent()
     //private val debian = this::class.java.getResource("/my.torrent").readBytes()
     private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readBytes()
+    private val my_db = HashMap<ByteArray, ByteArray>()
     @Test
     fun `after load, infohash calculated correctly`() {
-        //val myDB = mockk<DB_Manager>()
-        //mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
-        //every { write(any(), any()) } throws Exception()
+        mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
+        val keySlot = slot<ByteArray>()
+        val valueSlot = slot<ByteArray>()
+        every { write(key=capture(keySlot), value = capture(valueSlot)) } answers {my_db[keySlot.captured] = valueSlot.captured}
         val infohash = torrent.load(debian)
+        //every { myCT.load(torrent = debian) }
 
         assertThat(infohash, equalTo("5a8062c076fa85e8056451c0d9aa04349ae27909"))
     }
 
     @Test
     fun `after load, announce is correct`() {
+        mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
+        val keySlot = slot<ByteArray>()
+        val valueSlot = slot<ByteArray>()
+        every { write(key=capture(keySlot), value = capture(valueSlot)) } answers
+                {my_db[keySlot.captured] = valueSlot.captured}
+        every { read(key=capture(keySlot)) } answers {my_db[keySlot.captured]}
         val infohash = torrent.load(debian)
 
         val announces = torrent.announces(infohash)

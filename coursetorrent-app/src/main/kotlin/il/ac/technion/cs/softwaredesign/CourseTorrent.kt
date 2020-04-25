@@ -29,11 +29,11 @@ class CourseTorrent {
      */
     fun load(torrent: ByteArray): String {
         val infoValue: ByteArray
-        val myDict: TorrentDict
+        val dict: TorrentDict
         try {
             //infoValue = parser.getValueByKey(torrent, "info")
-            myDict = parser.parse(torrent)
-            val infoRange = myDict.getRange("info")
+            dict = parser.parse(torrent)
+            val infoRange = dict.getRange("info")
             infoValue = torrent.copyOfRange(infoRange.startIndex(), infoRange.endIndex())
         }catch (e: Exception){
             throw IllegalArgumentException1()
@@ -41,7 +41,7 @@ class CourseTorrent {
         val infohash = parser.SHAsum(infoValue)
         if(dbManager.get(infohash) != null)
             throw IllegalStateException()
-        dbManager.add(infohash, torrent)
+        dbManager.add(infohash, torrent, dict)
         return infohash
     }
 
@@ -72,10 +72,8 @@ class CourseTorrent {
      * @return Tier lists of announce URLs.
      */
     fun announces(infohash: String): List<List<String>> {
-        val torrent: ByteArray = dbManager.get(infohash) ?: throw IllegalArgumentException1()
-
-        val my_dict = parser.parse(torrent)
-
-        return (my_dict["announce-list"]?.value() as TorrentList).toList() as List<List<String>>
+        val lst: ByteArray = (dbManager.get(infohash, "announce-list") ?: dbManager.get(infohash, "announce"))
+        ?: throw IllegalArgumentException1()
+        return (parser.parseList(lst).value() as TorrentList).toList() as List<List<String>>
     }
 }

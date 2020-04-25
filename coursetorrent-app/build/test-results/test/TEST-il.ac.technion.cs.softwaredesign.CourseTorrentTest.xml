@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-25T10:58:28" hostname="TP13-01" time="0.674">
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-04-25T19:34:06" hostname="TP13-01" time="26.056">
   <properties/>
-  <testcase name="after load, infohash calculated correctly()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.674"/>
+  <testcase name="after load, announce is correct()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="26.056">
+    <skipped/>
+  </testcase>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
