@@ -17,6 +17,7 @@ import java.util.Formatter;
 
 class CourseTorrentStaffTest {
     private val torrent = CourseTorrent()
+    //val myCT = mockk<CourseTorrent>()
     //private val debian = this::class.java.getResource("/my.torrent").readBytes()
     private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readBytes()
     @Test

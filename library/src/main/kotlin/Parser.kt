@@ -1,9 +1,7 @@
 import java.security.MessageDigest
 import java.util.*
-import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
-//TODO: replace Any with union of dict, list, int, string
 
 class TorrentParser {
     private val charset = Charsets.UTF_8
@@ -25,25 +23,26 @@ class TorrentParser {
      * [torrent]: the torrent to parse
      * [startIndex]: the start index of the element
      * [stopCond]: the condition for stop. depends on current index
-     * @return: element, element's length
+     * @return: bytes until stopCond as string
      */
-    private fun parseElement(torrent: ByteArray, startIndex: Int, stopCond: (Int) -> Boolean): Pair<String, Int> {
-        var key = ""
-        var len = 0
+    private fun parseBytes(torrent: ByteArray, startIndex: Int, stopCond: (Int) -> Boolean): String {
+        var str = ""
         var index = startIndex
         while(!stopCond(index)) {
-            key += torrent[index].toChar()
-            len++
+            str += torrent[index].toChar()
             index++
         }
-        return Pair(key, len)
+        return str
     }
 
-    private fun parseValue(torrent: ByteArray, startIndex: Int): Pair<Any, Int>{
-        val res: Pair<Any, Int>
+    /**
+     * @return value as TorrentElement
+     */
+    private fun parseValue(torrent: ByteArray, startIndex: Int): TorrentElement{
+        val res: TorrentElement
         when(torrent[startIndex].toChar()) {
             in '0'..'9' -> {
-                res = parseNumElemPair(torrent, startIndex)
+                res = parseString(torrent, startIndex)
             }
             'i' -> {
                 res = parseInt(torrent, startIndex)
@@ -58,172 +57,188 @@ class TorrentParser {
                 throw Exception("Invalid Torrent")
             }
         }
-        return Pair(res.first, res.second)
+        return res
     }
 
-
-    private fun parseNumElemPair(torrent: ByteArray, index: Int): Pair<String, Int> {
-        assert(torrent[index].toChar() in '1'..'9')
+    /**
+     * parses torrent string.
+     * example: 3:one returns:
+     * TorrentElement("one", [startIndex], [startIndex]+3)
+     */
+    private fun parseString(torrent: ByteArray, startIndex: Int): TorrentElement {
+        assert(torrent[startIndex].toChar() in '1'..'9')
         var pairLen = 0
-        var res: Pair<String, Int> = parseElement(torrent, index) {torrent[it].toChar() == ':'}
+        var res: String = parseBytes(torrent, startIndex) {torrent[it].toChar() == ':'}
         //use val elemLen = res.first.toString(charset).toInt() if res.first is ByteArray
-        val elemLen = res.first.toInt()
-        val elemStartIndex = index+res.second+1 //pass elemLen and ':' sign
-        pairLen += res.second+1
-        res = parseElement(torrent, elemStartIndex) { it-elemStartIndex >= elemLen } //parse key
-        val elem = res.first
-        pairLen += res.second
-        return Pair(elem, pairLen)
+        val elemLen = res.toInt()
+        val elemStartIndex = startIndex+res.length+1 //pass elemLen and ':' sign
+        pairLen += res.length+1
+        res = parseBytes(torrent, elemStartIndex) { it-elemStartIndex >= elemLen } //parse key
+        val elem = res
+        pairLen += res.length
+        return TorrentElement(elem, startIndex, startIndex+pairLen)
     }
-    fun parseList(torrent: ByteArray, startIndex: Int = 0): Pair<List<Any>, Int>{
+
+    /**
+     * @return TorrentElement of TorrentList
+     */
+    fun parseList(torrent: ByteArray, startIndex: Int = 0): TorrentElement{
         assert(torrent[startIndex].toChar() == 'l')
-        val lst = ArrayList<Any>()
+        val lst = TorrentList()
         var index = startIndex+1 //pass 'l'
-        var res: Pair<Any, Int>
+        var res: TorrentElement
         var len = 1 //for 'l'
         while(torrent[index].toChar() != 'e'){
             res = parseValue(torrent, index)
-            lst.add(res.first)
-            index += res.second
-            len += res.second
+            lst.add(res)
+            index += res.len()
+            len += res.len()
         }
         assert(torrent[index].toChar() == 'e')
         len++ //pass 'e'
-        return Pair(lst, len)
+        return TorrentElement(lst, startIndex, startIndex+len)
     }
 
-    private fun parseDict(torrent: ByteArray, startIndex: Int): Pair<HashMap<String, Any>, Int>{
+    /**
+     * @return TorrentElement of TorrentDict
+     */
+    private fun parseDict(torrent: ByteArray, startIndex: Int): TorrentElement{
         assert(torrent[startIndex].toChar() == 'd')
-        val dict = HashMap<String, Any>()
+        val dict = TorrentDict()
         var index = startIndex+1
         var key: String
-        var res: Pair<Any, Int>
+        var res: TorrentElement
         var len = 1
         while(torrent[index].toChar() != 'e'){
             when(torrent[index].toChar()){
                 in '0'..'9' -> {
-                    res = parseNumElemPair(torrent, index)
-                    key = res.first
-                    index += res.second
-                    len += res.second
+                    res = parseString(torrent, index)
+                    key = res.value() as String
+                    index += res.len()
+                    len += res.len()
                 }
                 else -> throw Exception("DictKeyShouldBeString")
             }
             res = parseValue(torrent, index)
-            dict[key] = res.first
-            index += res.second
-            len += res.second
+            dict[key] = res
+            index += res.len()
+            len += res.len()
         }
         assert(torrent[index].toChar() == 'e')
         len++ //pass 'e'
-        return Pair(dict, len)
+        return TorrentElement(dict, startIndex, startIndex+len)
     }
 
-
-    private fun parseInt(torrent: ByteArray, startIndex: Int): Pair<Int, Int> {
+    /**
+     * parses int like i123e to:
+     * TorrentElement(123, [startIndex], [startIndex]+3)
+     */
+    private fun parseInt(torrent: ByteArray, startIndex: Int): TorrentElement {
         assert(torrent[startIndex].toChar() == 'i')
-        val res = parseElement(torrent, startIndex+1) {torrent[it].toChar() == 'e'}
-        return Pair(res.first.toInt(), res.second+2) //+2 for i and e
+        val res = parseBytes(torrent, startIndex+1) {torrent[it].toChar() == 'e'}
+        return TorrentElement(res.toInt(), startIndex, startIndex+res.length+2) //+2 for i and e
         //use res.first.toString(charset).toInt() in order to get int value
     }
 
-
-    fun parse(torrent: ByteArray): HashMap<String, Any>{
+    /**
+     * @return the main TorrentDict of the torrent
+     */
+    fun parse(torrent: ByteArray): TorrentDict{
         when(torrent[0].toChar()){
-            'd' -> return parseDict(torrent, 0).first
+            'd' -> return parseDict(torrent, 0).value() as TorrentDict
         }
         throw Exception("Torrent should start with dict")
     }
 
-    fun getBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray{
-        val res : Pair<Any, Int>
-        when(torrent[startIndex].toChar()){
-            in '0'..'9'-> return getStringBencodedValue(torrent, startIndex)
-            'd' ->{
-                res = parseDict(torrent, startIndex)
-                return torrent.copyOfRange(startIndex, startIndex + res.second)
-            }
-            'l' ->{
-                res = parseList(torrent, startIndex)
-                return torrent.copyOfRange(startIndex, startIndex+res.second)
-            }
-            'i' ->{
-                res = parseInt(torrent, startIndex)
-                return torrent.copyOfRange(startIndex, startIndex+res.second)
-            }
-            else -> throw Exception("not a valid value")
-        }
-    }
+//    fun getBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray{
+//        val res : TorrentElement
+//        when(torrent[startIndex].toChar()){
+//            in '0'..'9'-> return getStringBencodedValue(torrent, startIndex)
+//            'd' ->{
+//                res = parseDict(torrent, startIndex)
+//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
+//            }
+//            'l' ->{
+//                res = parseList(torrent, startIndex)
+//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
+//            }
+//            'i' ->{
+//                res = parseInt(torrent, startIndex)
+//                return torrent.copyOfRange(res.startIndex(), res.endIndex())
+//            }
+//            else -> throw Exception("not a valid value")
+//        }
+//    }
+//
+//    private fun getStringBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray {
+//        val res = parseString(torrent, startIndex)
+//        return torrent.copyOfRange(res.startIndex(), res.endIndex())
+//    }
+//
+//    fun getValueByKey(torrent: ByteArray, key: String): ByteArray{
+//        assert(torrent[0].toChar() == 'd')
+//        val dict = HashMap<String, Any>()
+//        var index = 1
+//        var curr_key: String
+//        var res: TorrentElement
+//        var len = 1
+//        var found = false
+//        while(torrent[index].toChar() != 'e'){
+//            when(torrent[index].toChar()){
+//                in '0'..'9' -> {
+//                    res = parseString(torrent, index)
+//                    curr_key = res.value() as String
+//                    if(curr_key == key)
+//                        found = true
+//                    index += res.len()
+//                    len += res.len()
+//                }
+//                else -> throw Exception("DictKeyShouldBeString")
+//            }
+//            if(found)
+//                return getBencodedValue(torrent, index)
+//            res = parseValue(torrent, index)
+//            dict[key] = res.value()
+//            index += res.len()
+//            len += res.len()
+//        }
+//        assert(torrent[index].toChar() == 'e')
+//        len++ //pass 'e'
+//        throw Exception("key not found")
+//    }
 
-    private fun getStringBencodedValue(torrent: ByteArray, startIndex: Int): ByteArray {
-        val res = parseNumElemPair(torrent, startIndex)
-        return torrent.copyOfRange(startIndex, startIndex+res.second)
-    }
-
-    fun getValueByKey(torrent: ByteArray, key: String): ByteArray{
-        assert(torrent[0].toChar() == 'd')
-        val dict = HashMap<String, Any>()
-        var index = 1
-        var curr_key: String
-        var res: Pair<Any, Int>
-        var len = 1
-        var found = false
-        while(torrent[index].toChar() != 'e'){
-            when(torrent[index].toChar()){
-                in '0'..'9' -> {
-                    res = parseNumElemPair(torrent, index)
-                    curr_key = res.first
-                    if(curr_key == key)
-                        found = true
-                    index += res.second
-                    len += res.second
-                }
-                else -> throw Exception("DictKeyShouldBeString")
-            }
-            if(found)
-                return getBencodedValue(torrent, index)
-            res = parseValue(torrent, index)
-            dict[key] = res.first
-            index += res.second
-            len += res.second
-        }
-        assert(torrent[index].toChar() == 'e')
-        len++ //pass 'e'
-        throw Exception("key not found")
-    }
-
-    fun encode(torrent: Any?): ByteArray {
-        var res: ByteArray
-        when(torrent){
-             is Map<*,*> -> {
-                res = "d".toByteArray()
-                for (it in torrent){
-                    res += encode(it.key)
-                    res += encode(it.value)
-                }
-                res += "e".toByteArray()
-            }
-            is List<*> -> {
-                res = "l".toByteArray()
-                for (it in torrent) {
-                    res += encode(it)
-                }
-                res += "e".toByteArray()
-            }
-            is Int ->{
-                res = "i".toByteArray()
-                res += torrent.toString().toByteArray()
-                res += "e".toByteArray()
-            }
-            is String ->{
-                res = torrent.length.toString().toByteArray()
-                res += ":".toByteArray()
-                res += torrent.toByteArray()
-            }
-            else ->{
-                throw Exception("encode error")
-            }
-        }
-        return res
-    }
+//    fun encode(torrent: Any?): ByteArray {
+//        var res: ByteArray
+//        when(torrent){
+//             is Map<*,*> -> {
+//                res = "d".toByteArray()
+//                for (it in torrent){
+//                    res += encode(it.key)
+//                    res += encode(it.value)
+//                }
+//                res += "e".toByteArray()
+//            }
+//            is List<*> -> {
+//                res = "l".toByteArray()
+//                for (it in torrent) {
+//                    res += encode(it)
+//                }
+//                res += "e".toByteArray()
+//            }
+//            is Int ->{
+//                res = "i".toByteArray()
+//                res += torrent.toString().toByteArray()
+//                res += "e".toByteArray()
+//            }
+//            is String ->{
+//                res = torrent.length.toString().toByteArray()
+//                res += ":".toByteArray()
+//                res += torrent.toByteArray()
+//            }
+//            else ->{
+//                throw Exception("encode error")
+//            }
+//        }
+//        return res
+//    }
 }

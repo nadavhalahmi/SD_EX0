@@ -1,6 +1,8 @@
 package il.ac.technion.cs.softwaredesign
 
 import DB_Manager
+import TorrentDict
+import TorrentList
 import TorrentParser
 import kotlin.IllegalArgumentException as IllegalArgumentException1
 
@@ -27,8 +29,12 @@ class CourseTorrent {
      */
     fun load(torrent: ByteArray): String {
         val infoValue: ByteArray
+        val myDict: TorrentDict
         try {
-            infoValue = parser.getValueByKey(torrent, "info")
+            //infoValue = parser.getValueByKey(torrent, "info")
+            myDict = parser.parse(torrent)
+            val infoRange = myDict.getRange("info")
+            infoValue = torrent.copyOfRange(infoRange.startIndex(), infoRange.endIndex())
         }catch (e: Exception){
             throw IllegalArgumentException1()
         }
@@ -68,8 +74,8 @@ class CourseTorrent {
     fun announces(infohash: String): List<List<String>> {
         val torrent: ByteArray = dbManager.get(infohash) ?: throw IllegalArgumentException1()
 
-        val announe_list = parser.getValueByKey(torrent, "announce-list")
+        val my_dict = parser.parse(torrent)
 
-        return parser.parseList(announe_list).first as List<List<String>>
+        return (my_dict["announce-list"]?.value() as TorrentList).toList() as List<List<String>>
     }
 }

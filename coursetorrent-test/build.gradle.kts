@@ -12,6 +12,5 @@ dependencies {
     testImplementation("org.junit.jupiter", "junit-jupiter-api", junitVersion)
     testImplementation("org.junit.jupiter", "junit-jupiter-params", junitVersion)
     testImplementation("com.natpryce", "hamkrest", hamkrestVersion)
-
     testImplementation("io.mockk", "mockk", mockkVersion)
 }
