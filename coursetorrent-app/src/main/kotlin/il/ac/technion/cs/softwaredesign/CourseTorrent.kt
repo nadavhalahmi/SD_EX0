@@ -72,8 +72,14 @@ class CourseTorrent {
      * @return Tier lists of announce URLs.
      */
     fun announces(infohash: String): List<List<String>> {
-        val lst: ByteArray = (dbManager.get(infohash, "announce-list") ?: dbManager.get(infohash, "announce"))
-        ?: throw IllegalArgumentException1()
-        return (parser.parseList(lst).value() as TorrentList).toList() as List<List<String>>
+        var lst: ByteArray? = dbManager.get(infohash, "announce-list")
+        if(lst == null) {
+            lst = dbManager.get(infohash, "announce")
+            if (lst == null)
+                throw IllegalArgumentException1()
+            else
+                lst = "l".toByteArray(Charsets.UTF_8) + lst + "e".toByteArray(Charsets.UTF_8)
+        }
+        return listOf((parser.parseList(lst).value() as TorrentList).toList() as List<String>)
     }
 }

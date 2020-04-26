@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="1" skipped="1" failures="0" errors="0" timestamp="2020-04-25T19:34:06" hostname="TP13-01" time="26.056">
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-26T08:10:20" hostname="TP13-01" time="4.213">
   <properties/>
-  <testcase name="after load, announce is correct()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="26.056">
-    <skipped/>
-  </testcase>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="after load, infohash calculated correctly()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="3.285"/>
+  <testcase name="after load, announce is correct()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.923"/>
+  <system-out><![CDATA[reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
