@@ -27,7 +27,7 @@ class TorrentList() {
 //                return false
 //            val value = dict[key]
 //            val toCompareVal = other[key]
-//            if (value != null) {
+//            if (value !== null) {
 //                if(value != toCompareVal)
 //                    return false
 //            }

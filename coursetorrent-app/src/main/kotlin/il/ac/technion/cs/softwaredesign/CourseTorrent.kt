@@ -39,7 +39,7 @@ class CourseTorrent {
             throw IllegalArgumentException1()
         }
         val infohash = parser.SHAsum(infoValue)
-        if(dbManager.get(infohash) != null)
+        if(dbManager.get(infohash) !== null)
             throw IllegalStateException()
         dbManager.add(infohash, torrent, dict)
         return infohash
@@ -53,7 +53,7 @@ class CourseTorrent {
      * @throws IllegalArgumentException1 If [infohash] is not loaded.
      */
     fun unload(infohash: String): Unit {
-        if(dbManager.get(infohash) == null)
+        if(dbManager.get(infohash) === null)
             throw IllegalArgumentException1()
         dbManager.delete(infohash)
     }

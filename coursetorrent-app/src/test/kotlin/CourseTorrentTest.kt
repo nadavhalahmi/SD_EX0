@@ -11,8 +11,6 @@ import il.ac.technion.cs.softwaredesign.storage.read
 import il.ac.technion.cs.softwaredesign.storage.write
 
 import io.mockk.every
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.assertDoesNotThrow
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -20,36 +18,45 @@ import java.util.Formatter;
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import io.mockk.slot
+import net.bytebuddy.asm.Advice
+import org.junit.jupiter.api.*
 
 
 class CourseTorrentTest {
-    private val charset = Charsets.UTF_8
-    private val torrent = CourseTorrent()
-    private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readBytes()
-    private val my_db = HashMap<MyByteArray, MyByteArray>()
+    companion object {
+        private val torrent = CourseTorrent()
+        private val debian = this::class.java.getResource("/debian-10.3.0-amd64-netinst.iso.torrent").readBytes()
+        private val announceList2Urls = this::class.java.getResource("/announce-list2urls.torrent").readBytes()
+        private val my_db = HashMap<MyByteArray, MyByteArray>()
+        private val keySlot = slot<ByteArray>()
+        private val valueSlot = slot<ByteArray>()
+        private val charset = Charsets.UTF_8
+        @BeforeAll
+        @JvmStatic
+        internal fun initMocks() {
+            mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
+            every { write(key=capture(keySlot), value = capture(valueSlot)) } answers
+                    {my_db[MyByteArray(keySlot.captured)] = MyByteArray(valueSlot.captured)
+                        println("writing key "+keySlot.captured.toString(charset))}
+            every { read(key=capture(keySlot)) } answers {
+                println("reading key "+keySlot.captured.toString(charset))
+                if(my_db.containsKey(MyByteArray(keySlot.captured)))
+                    my_db[MyByteArray(keySlot.captured)]?.arr
+                else null  }
+        }
+
+
+    }
     @Test
     fun `after load, infohash calculated correctly`() {
-        mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
-        val keySlot = slot<ByteArray>()
-        val valueSlot = slot<ByteArray>()
-        every { write(key=capture(keySlot), value = capture(valueSlot)) } answers
-                {my_db[MyByteArray(keySlot.captured)] = MyByteArray(valueSlot.captured)}
         val infohash = torrent.load(debian)
 
         assertThat(infohash, equalTo("5a8062c076fa85e8056451c0d9aa04349ae27909"))
+        torrent.unload(infohash)
     }
 
     @Test
     fun `after load, announce is correct`() {
-        mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
-        val keySlot = slot<ByteArray>()
-        val valueSlot = slot<ByteArray>()
-        every { write(key=capture(keySlot), value = capture(valueSlot)) } answers
-                {my_db[MyByteArray(keySlot.captured)] = MyByteArray(valueSlot.captured)
-                println("writing key "+keySlot.captured.toString(charset))}
-        every { read(key=capture(keySlot)) } answers {
-            println("reading key "+keySlot.captured.toString(charset))
-            my_db[MyByteArray(keySlot.captured)]?.arr  }
         val infohash = torrent.load(debian)
 
         val announces = torrent.announces(infohash)
@@ -57,7 +64,56 @@ class CourseTorrentTest {
         assertThat(announces, allElements(hasSize(equalTo(1))))
         assertThat(announces, hasSize(equalTo(1)))
         assertThat(announces, allElements(hasElement("http://bttracker.debian.org:6969/announce")))
+        torrent.unload(infohash)
     }
 
+    @Test
+    fun `after unload, torrent in unloaded`() {
+        val infohash = torrent.load(debian)
 
+        torrent.unload(infohash)
+
+        assertThrows<IllegalArgumentException> { torrent.unload(infohash) }
+    }
+
+    @Test
+    fun `load unload load unload does not crash`(){
+        val infohash = torrent.load(debian)
+        torrent.unload(infohash)
+        torrent.load(debian)
+        torrent.unload(infohash)
+    }
+
+    @Test
+    fun `announce-list 2 urls`() {
+        val infohash = torrent.load(announceList2Urls)
+
+        val announces = torrent.announces(infohash)
+
+        assertThat(announces, allElements(hasSize(equalTo(2))))
+        assertThat(announces, hasSize(equalTo(1)))
+        assertThat(announces, allElements(hasElement("http://bttracker.debian.org:6969/announce")))
+        assertThat(announces, allElements(hasElement("http://bttracker.debian.org:6969/announce2")))
+        torrent.unload(infohash)
+    }
+
+    @Test
+    fun `load load crashes`(){
+        val infohash = torrent.load(debian)
+        assertThrows<IllegalStateException> { torrent.load(debian) }
+        torrent.unload(infohash)
+    }
+
+    @Test
+    fun `load two torrents works`(){
+        val infohash1 = torrent.load(debian)
+        val infohash2 = torrent.load(announceList2Urls)
+        val announce1 = torrent.announces(infohash1)
+        val announce2 = torrent.announces(infohash2)
+        assertThat(announce1, allElements(hasElement("http://bttracker.debian.org:6969/announce")))
+        assertThat(announce2, allElements(hasElement("http://bttracker.debian.org:6969/announce")))
+        assertThat(announce2, allElements(hasElement("http://bttracker.debian.org:6969/announce2")))
+        torrent.unload(infohash2)
+        torrent.unload(infohash1)
+    }
 }

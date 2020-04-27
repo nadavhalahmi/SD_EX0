@@ -32,7 +32,7 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
 
     fun get(hash: ByteArray, key: String = ""): ByteArray? {
         val res = read(hash)
-        if(res == null || res.size==0)
+        if(res === null || res.size==0)
             return null
         return read(hash+key.toByteArray(charset))
     }

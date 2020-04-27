@@ -1,9 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-04-27T16:39:03" hostname="TP13-01" time="3.705">
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2020-04-27T18:43:57" hostname="TP13-01" time="3.628">
   <properties/>
-  <testcase name="after load, infohash calculated correctly()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="2.884"/>
-  <testcase name="after load, announce is correct()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.818"/>
-  <system-out><![CDATA[reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+  <testcase name="announce-list 2 urls()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.848"/>
+  <testcase name="after load, infohash calculated correctly()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.72"/>
+  <testcase name="after unload, torrent in unloaded()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.684"/>
+  <testcase name="load two torrents works()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.529"/>
+  <testcase name="load unload load unload does not crash()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.346"/>
+  <testcase name="after load, announce is correct()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.178"/>
+  <testcase name="load load crashes()" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.307"/>
+  <system-out><![CDATA[reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
@@ -14,6 +98,21 @@ reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

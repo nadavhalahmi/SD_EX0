@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">2</div>
+<div class="counter">7</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.702s</div>
+<div class="counter">3.612s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,12 +79,37 @@
 </thead>
 <tr>
 <td class="success">after load, announce is correct()</td>
-<td class="success">0.818s</td>
+<td class="success">0.178s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">after load, infohash calculated correctly()</td>
-<td class="success">2.884s</td>
+<td class="success">0.720s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">after unload, torrent in unloaded()</td>
+<td class="success">0.684s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">announce-list 2 urls()</td>
+<td class="success">0.848s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">load load crashes()</td>
+<td class="success">0.307s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">load two torrents works()</td>
+<td class="success">0.529s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">load unload load unload does not crash()</td>
+<td class="success">0.346s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -92,7 +117,86 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+<pre>reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
 writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
@@ -103,6 +207,21 @@ reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
 reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
+writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
 </pre>
 </span>
 </div>
@@ -114,7 +233,7 @@ reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 27 באפר׳ 2020, 19:39:07</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 27 באפר׳ 2020, 21:44:00</p>
 </div>
 </div>
 </body>
