@@ -73,9 +73,9 @@ class CourseTorrent {
      */
     fun announces(infohash: String): List<List<String>> {
         var lst: ByteArray? = dbManager.get(infohash, "announce-list")
-        if(lst == null) {
+        if(lst === null) {
             lst = dbManager.get(infohash, "announce")
-            if (lst == null)
+            if (lst === null)
                 throw IllegalArgumentException1()
             else
                 lst = "l".toByteArray(Charsets.UTF_8) + lst + "e".toByteArray(Charsets.UTF_8)

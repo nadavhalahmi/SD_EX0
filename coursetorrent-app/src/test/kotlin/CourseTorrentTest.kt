@@ -46,9 +46,9 @@ class CourseTorrentTest {
         val valueSlot = slot<ByteArray>()
         every { write(key=capture(keySlot), value = capture(valueSlot)) } answers
                 {my_db[MyByteArray(keySlot.captured)] = MyByteArray(valueSlot.captured)
-                println("writing key "+keySlot.captured.toString(charset=Charsets.UTF_8))}
+                println("writing key "+keySlot.captured.toString(charset))}
         every { read(key=capture(keySlot)) } answers {
-            println("reading key "+keySlot.captured.toString(charset=Charsets.UTF_8))
+            println("reading key "+keySlot.captured.toString(charset))
             my_db[MyByteArray(keySlot.captured)]?.arr  }
         val infohash = torrent.load(debian)
 

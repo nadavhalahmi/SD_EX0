@@ -26,7 +26,6 @@ class DB_ManagerTest {
     fun `after load, infohash calculated correctly`() {
         mockkStatic("il.ac.technion.cs.softwaredesign.storage.SecureStorageKt")
         every { write(any(), any()) } throws Exception("some mock exception")
-        db.add("hello", ByteArray(0))
         assert(true == true)
     }
 }
