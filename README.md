@@ -24,12 +24,12 @@ TorrentDict - reperesents a dictionary of string -> TorrentElement
 TorrentList - reperesents a list of TorrentElement
 
 ### Testing Summary
-COMPLETE.
+Parser and CourseTorrent were tested in a few cases, based on two torrents, one with announce and one with announce-list of two urls.
 
 ### Difficulties
 Mockk and Gradle where technically hard to use. 
 Changed to this line in gradle-wrapper.properties: distributionUrl=https\://services.gradle.org/distributions/gradle-6.3-all.zip
 
 ### Feedback
-It email feedback was good, but it would be better if we wont need to use it.
+The email feedback was good, but it would be better if we wont need to use it.
 It wasnt very clear where we should write code.
