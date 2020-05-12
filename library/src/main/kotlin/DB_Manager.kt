@@ -16,7 +16,7 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
      */
     fun add(hash: String, value: ByteArray, dict: TorrentDict){
         val hashBytes = hash.toByteArray(charset)
-        write(hashBytes, value)
+        //write(hashBytes, value)
         write((hash+"exists").toByteArray(charset), "true".toByteArray(charset))
         for(key in dict.keys) {
             val range = dict.getRange(key)
