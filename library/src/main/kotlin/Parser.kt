@@ -73,9 +73,10 @@ class TorrentParser {
         val elemLen = res.toInt()
         val elemStartIndex = startIndex+res.length+1 //pass elemLen and ':' sign
         pairLen += res.length+1
-        res = parseBytes(torrent, elemStartIndex) { it-elemStartIndex >= elemLen } //parse key
+        res = torrent.copyOfRange(elemStartIndex, elemStartIndex+elemLen).toString(Charsets.UTF_8)
+        //res = parseBytesByLen(torrent, elemStartIndex, elemLen)
         val elem = res
-        pairLen += res.length
+        pairLen += elemLen
         return TorrentElement(elem, startIndex, startIndex+pairLen)
     }
 
@@ -136,7 +137,7 @@ class TorrentParser {
     private fun parseInt(torrent: ByteArray, startIndex: Int): TorrentElement {
         assert(torrent[startIndex].toChar() == 'i')
         val res = parseBytes(torrent, startIndex+1) {torrent[it].toChar() == 'e'}
-        return TorrentElement(res.toInt(), startIndex, startIndex+res.length+2) //+2 for i and e
+        return TorrentElement(res.toBigInteger(), startIndex, startIndex+res.length+2) //+2 for i and e
         //use res.first.toString(charset).toInt() in order to get int value
     }
 

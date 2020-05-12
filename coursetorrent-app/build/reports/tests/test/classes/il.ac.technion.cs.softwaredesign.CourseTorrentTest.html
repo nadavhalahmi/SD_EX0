@@ -23,13 +23,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">7</div>
+<div class="counter">1</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">1</div>
 <p>failures</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">3.612s</div>
+<div class="counter">0s</div>
 <p>duration</p>
 </div>
 </td>
@@ -50,8 +50,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">0%</div>
 <p>successful</p>
 </div>
 </td>
@@ -61,13 +61,110 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Tests</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Standard output</a>
+<a href="#tab1">Tests</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="initializationError"></a>
+<h3 class="failures">initializationError</h3>
+<span class="code">
+<pre>java.lang.ClassNotFoundException: il.ac.technion.cs.softwaredesign.storage.SecureStorageKt
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:602)
+	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:522)
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:340)
+	at io.mockk.InternalPlatformDsl.classForName(InternalPlatformDsl.kt:90)
+	at il.ac.technion.cs.softwaredesign.CourseTorrentTest$Companion.initMocks$coursetorrent_app(CourseTorrentTest.kt:130)
+	at il.ac.technion.cs.softwaredesign.CourseTorrentTest.initMocks$coursetorrent_app(CourseTorrentTest.kt)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:686)
+	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptLifecycleMethod(TimeoutExtension.java:126)
+	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptBeforeAllMethod(TimeoutExtension.java:68)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
+	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
+	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeBeforeAllMethods$8(ClassBasedTestDescriptor.java:375)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeBeforeAllMethods(ClassBasedTestDescriptor.java:373)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:193)
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.before(ClassBasedTestDescriptor.java:78)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:132)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1510)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:38)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$5(NodeTestTask.java:139)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$7(NodeTestTask.java:125)
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:135)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:123)
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:122)
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:80)
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:32)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:51)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:220)
+	at org.junit.platform.launcher.core.DefaultLauncher.lambda$execute$6(DefaultLauncher.java:188)
+	at org.junit.platform.launcher.core.DefaultLauncher.withInterceptedStreams(DefaultLauncher.java:202)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:181)
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:128)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.processAllTestClasses(JUnitPlatformTestClassProcessor.java:99)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor$CollectAllTestClassesExecutor.access$000(JUnitPlatformTestClassProcessor.java:79)
+	at org.gradle.api.internal.tasks.testing.junitplatform.JUnitPlatformTestClassProcessor.stop(JUnitPlatformTestClassProcessor.java:75)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:33)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:94)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:132)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:564)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:36)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:182)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:164)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:412)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:64)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:48)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:56)
+	at java.base/java.lang.Thread.run(Thread.java:832)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
 <h2>Tests</h2>
 <table>
 <thead>
@@ -78,152 +175,11 @@
 </tr>
 </thead>
 <tr>
-<td class="success">after load, announce is correct()</td>
-<td class="success">0.178s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">after load, infohash calculated correctly()</td>
-<td class="success">0.720s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">after unload, torrent in unloaded()</td>
-<td class="success">0.684s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">announce-list 2 urls()</td>
-<td class="success">0.848s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">load load crashes()</td>
-<td class="success">0.307s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">load two torrents works()</td>
-<td class="success">0.529s</td>
-<td class="success">passed</td>
-</tr>
-<tr>
-<td class="success">load unload load unload does not crash()</td>
-<td class="success">0.346s</td>
-<td class="success">passed</td>
+<td class="failures">initializationError</td>
+<td class="failures">0s</td>
+<td class="failures">failed</td>
 </tr>
 </table>
-</div>
-<div id="tab1" class="tab">
-<h2>Standard output</h2>
-<span class="code">
-<pre>reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0httpseeds
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0creation date
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0comment
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0announce-list
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-writing key 38cd8db7dddedbf5ba91e33303221a33473c38c0
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce-list
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909httpseeds
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909creation date
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909comment
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909announce
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909info
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-reading key 5a8062c076fa85e8056451c0d9aa04349ae27909
-writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
-</pre>
-</span>
 </div>
 </div>
 <div id="footer">
@@ -233,7 +189,7 @@ writing key 5a8062c076fa85e8056451c0d9aa04349ae27909
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 6.3</a> at 27 באפר׳ 2020, 21:44:00</p>
+<a href="http://www.gradle.org">Gradle 6.3</a> at 11 במאי 2020, 18:03:34</p>
 </div>
 </div>
 </body>

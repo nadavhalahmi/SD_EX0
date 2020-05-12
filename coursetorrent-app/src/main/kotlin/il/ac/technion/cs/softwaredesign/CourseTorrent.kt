@@ -39,7 +39,7 @@ class CourseTorrent {
             throw IllegalArgumentException1()
         }
         val infohash = parser.SHAsum(infoValue)
-        if(dbManager.get(infohash) !== null)
+        if(dbManager.exists(infohash))
             throw IllegalStateException()
         dbManager.add(infohash, torrent, dict)
         return infohash
@@ -53,7 +53,7 @@ class CourseTorrent {
      * @throws IllegalArgumentException1 If [infohash] is not loaded.
      */
     fun unload(infohash: String): Unit {
-        if(dbManager.get(infohash) === null)
+        if(!dbManager.exists(infohash))
             throw IllegalArgumentException1()
         dbManager.delete(infohash)
     }
@@ -78,8 +78,9 @@ class CourseTorrent {
             if (lst === null)
                 throw IllegalArgumentException1()
             else
-                lst = "l".toByteArray(Charsets.UTF_8) + lst + "e".toByteArray(Charsets.UTF_8)
+                lst = "ll".toByteArray(Charsets.UTF_8) + lst + "ee".toByteArray(Charsets.UTF_8)
         }
-        return listOf((parser.parseList(lst).value() as TorrentList).toList() as List<String>)
+        //return listOf((parser.parseList(lst).value() as TorrentList).toList() as List<String>)
+        return ((parser.parseList(lst).value() as TorrentList).toList() as List<List<String>>)
     }
 }

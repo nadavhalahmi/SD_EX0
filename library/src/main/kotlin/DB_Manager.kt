@@ -17,10 +17,19 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
     fun add(hash: String, value: ByteArray, dict: TorrentDict){
         val hashBytes = hash.toByteArray(charset)
         write(hashBytes, value)
+        write((hash+"exists").toByteArray(charset), "true".toByteArray(charset))
         for(key in dict.keys) {
             val range = dict.getRange(key)
             write((hash + key).toByteArray(), value.copyOfRange(range.startIndex(), range.endIndex()))
         }
+    }
+
+    fun exists(hash: String, key: String = ""): Boolean {
+        return exists((hash).toByteArray(charset),key)
+    }
+
+    fun exists(hash: ByteArray, key: String = ""): Boolean {
+        return read(hash + "exists".toByteArray(charset))?.isNotEmpty() ?: false
     }
 
     /**
@@ -31,9 +40,7 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
     }
 
     fun get(hash: ByteArray, key: String = ""): ByteArray? {
-        val res = read(hash)
-        if(res === null || res.size==0)
-            return null
+        if(!exists(hash)) return null
         return read(hash+key.toByteArray(charset))
     }
 
@@ -46,6 +53,6 @@ class DB_Manager(private val charset: Charset = Charsets.UTF_8) {
     }
 
     fun delete(key: ByteArray): Unit {
-        write(key, ByteArray(0))
+        write(key+"exists".toByteArray(charset), ByteArray(0))
     }
 }

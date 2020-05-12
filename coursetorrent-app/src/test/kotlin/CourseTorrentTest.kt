@@ -116,4 +116,11 @@ class CourseTorrentTest {
         torrent.unload(infohash2)
         torrent.unload(infohash1)
     }
+
+    @Test
+    fun `after unload, cant get announce`(){
+        val infohash = torrent.load(debian)
+        torrent.unload(infohash)
+        assertThrows<IllegalArgumentException> { torrent.announces(infohash) }
+    }
 }
