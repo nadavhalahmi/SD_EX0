@@ -41,6 +41,14 @@ BY
 
 library/src/main/kotlin/DB_Manager.kt:
 
+line 19:	REPLACE
+
+	write(hashBytes, value)
+
+BY
+
+	//write(hashBytes, value)
+
 after line 19:	ADD 
 
 	write((hash+"exists").toByteArray(charset), "true".toByteArray(charset))
