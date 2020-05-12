@@ -19,7 +19,45 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96cf844f-b32a-4ed9-ac9f-aa8464e7346f" name="Default Changelist" comment="" />
+    <list default="true" id="96cf844f-b32a-4ed9-ac9f-aa8464e7346f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.3/vcsMetadata-1/vcsMetadata-1.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.3/vcsMetadata-1/vcsMetadata-1.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseTorrentTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/classes/kotlin/test/il/ac/technion/cs/softwaredesign/CourseTorrentTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/inputs/source-to-output.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/class-fq-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/internal-name-to-source.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/proto.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/jvm/kotlin/source-to-classes.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/counters.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/file-to-id.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.keystream.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.len" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/id-to-file.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/caches-jvm/lookups/lookups.tab.values.at" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/kotlin/compileTestKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/classes/il.ac.technion.cs.softwaredesign.CourseTorrentTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/classes/il.ac.technion.cs.softwaredesign.CourseTorrentTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.html" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/test-results/test/TEST-il.ac.technion.cs.softwaredesign.CourseTorrentTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/test-results/test/TEST-il.ac.technion.cs.softwaredesign.CourseTorrentTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-app/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-app/build/test-results/test/binary/results.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-test/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-test/build/reports/tests/test/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-test/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.html" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-test/build/reports/tests/test/packages/il.ac.technion.cs.softwaredesign.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/coursetorrent-test/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/coursetorrent-test/build/test-results/test/binary/results.bin" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -137,18 +175,18 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="SmallTest.announces for multiple lists with special unicode chars" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CourseTorrentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;il.ac.technion.cs.softwaredesign.CourseTorrentStaffTest$SmallTest.announces for multiple lists with special unicode chars&quot;" />
+        <option name="scriptParameters" value="--tests &quot;il.ac.technion.cs.softwaredesign.CourseTorrentTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
-            <option value=":coursetorrent-test:test" />
+            <option value=":coursetorrent-app:test" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -178,10 +216,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.CourseTorrentStaffTest" />
+        <item itemvalue="Gradle.CourseTorrentTest" />
         <item itemvalue="Gradle.base [:library:jar]" />
         <item itemvalue="Gradle.BigTest.many torrents can be loaded to db" />
         <item itemvalue="Gradle.BigTest" />
-        <item itemvalue="Gradle.SmallTest.announces for multiple lists with special unicode chars" />
       </list>
     </recent_temporary>
   </component>
@@ -202,7 +240,7 @@
       <workItem from="1587743137626" duration="53070000" />
       <workItem from="1589021340714" duration="41000" />
       <workItem from="1589205970656" duration="9074000" />
-      <workItem from="1589264355488" duration="851000" />
+      <workItem from="1589264355488" duration="1157000" />
     </task>
     <servers />
   </component>
@@ -252,26 +290,26 @@
     </state>
     <state x="535" y="126" key="FileChooserDialogImpl/0.0.1366.728/76.-720.1280.680@0.0.1366.728" timestamp="1588006340143" />
     <state x="535" y="126" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1589021377725" />
-    <state width="1323" height="171" key="GridCell.Tab.0.bottom" timestamp="1589264532838">
+    <state width="1323" height="171" key="GridCell.Tab.0.bottom" timestamp="1589267587583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="291" key="GridCell.Tab.0.bottom/0.0.1366.728/76.-720.1280.680@0.0.1366.728" timestamp="1589212053791" />
-    <state width="1323" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589264532838" />
-    <state width="1323" height="171" key="GridCell.Tab.0.center" timestamp="1589264532838">
+    <state width="1323" height="171" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1589267587583" />
+    <state width="1323" height="171" key="GridCell.Tab.0.center" timestamp="1589267587583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="291" key="GridCell.Tab.0.center/0.0.1366.728/76.-720.1280.680@0.0.1366.728" timestamp="1589212053790" />
-    <state width="1323" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589264532838" />
-    <state width="1323" height="171" key="GridCell.Tab.0.left" timestamp="1589264532837">
+    <state width="1323" height="171" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1589267587583" />
+    <state width="1323" height="171" key="GridCell.Tab.0.left" timestamp="1589267587583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="291" key="GridCell.Tab.0.left/0.0.1366.728/76.-720.1280.680@0.0.1366.728" timestamp="1589212053790" />
-    <state width="1323" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589264532837" />
-    <state width="1323" height="171" key="GridCell.Tab.0.right" timestamp="1589264532838">
+    <state width="1323" height="171" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1589267587583" />
+    <state width="1323" height="171" key="GridCell.Tab.0.right" timestamp="1589267587583">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="291" key="GridCell.Tab.0.right/0.0.1366.728/76.-720.1280.680@0.0.1366.728" timestamp="1589212053790" />
-    <state width="1323" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589264532838" />
+    <state width="1323" height="171" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1589267587583" />
     <state width="1323" height="291" key="GridCell.Tab.1.bottom" timestamp="1589219383755">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

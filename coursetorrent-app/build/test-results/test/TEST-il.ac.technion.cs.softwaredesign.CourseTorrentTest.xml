@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-05-11T15:03:34" hostname="TP13-01" time="0.0">
+<testsuite name="il.ac.technion.cs.softwaredesign.CourseTorrentTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-05-12T07:12:33" hostname="TP13-01" time="0.001">
   <properties/>
-  <testcase name="initializationError" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.0">
+  <testcase name="initializationError" classname="il.ac.technion.cs.softwaredesign.CourseTorrentTest" time="0.001">
     <failure message="java.lang.ClassNotFoundException: il.ac.technion.cs.softwaredesign.storage.SecureStorageKt" type="java.lang.ClassNotFoundException">java.lang.ClassNotFoundException: il.ac.technion.cs.softwaredesign.storage.SecureStorageKt
 	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:602)
 	at java.base/jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:178)
@@ -9,7 +9,7 @@
 	at java.base/java.lang.Class.forName0(Native Method)
 	at java.base/java.lang.Class.forName(Class.java:340)
 	at io.mockk.InternalPlatformDsl.classForName(InternalPlatformDsl.kt:90)
-	at il.ac.technion.cs.softwaredesign.CourseTorrentTest$Companion.initMocks$coursetorrent_app(CourseTorrentTest.kt:130)
+	at il.ac.technion.cs.softwaredesign.CourseTorrentTest$Companion.initMocks$coursetorrent_app(CourseTorrentTest.kt:123)
 	at il.ac.technion.cs.softwaredesign.CourseTorrentTest.initMocks$coursetorrent_app(CourseTorrentTest.kt)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
