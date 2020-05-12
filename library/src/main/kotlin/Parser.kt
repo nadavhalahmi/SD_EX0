@@ -137,7 +137,7 @@ class TorrentParser {
     private fun parseInt(torrent: ByteArray, startIndex: Int): TorrentElement {
         assert(torrent[startIndex].toChar() == 'i')
         val res = parseBytes(torrent, startIndex+1) {torrent[it].toChar() == 'e'}
-        return TorrentElement(res.toBigInteger(), startIndex, startIndex+res.length+2) //+2 for i and e
+        return TorrentElement(res.toLong(), startIndex, startIndex+res.length+2) //+2 for i and e
         //use res.first.toString(charset).toInt() in order to get int value
     }
 

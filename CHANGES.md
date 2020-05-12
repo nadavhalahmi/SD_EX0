@@ -1,4 +1,14 @@
 Changes:
+
+There were four main problems with my submission:
+1. The tests ran for too long - fixed by replacing the (infohash, torrent as bytearray) entry 
+with (infohash+"exists", "true" (or empty bytearray as false)) to check existance.
+2. Problem with special characters (which are saved in more than one byte) - fixed by using copyOfRange from the torrent as bytearray
+instead of reading byte-byte as character into a string.
+3. Problem in case of announce-list (We didn't quite understand the torrent's stacture in this case) - fixed by unwrapping with list
+in announce-list case.
+4. Problem with too big integers - fixed by parsing as Long insted of Int
+
 CourseTorrent.kt:
 
 line 42:
@@ -104,4 +114,4 @@ REPLACE
 	return TorrentElement(res.toInt(), startIndex, startIndex+res.length+2) //+2 for i and e
 BY 
 	
-	return TorrentElement(res.toBigInteger(), startIndex, startIndex+res.length+2) //+2 for i and e
+	return TorrentElement(res.toLong(), startIndex, startIndex+res.length+2) //+2 for i and e
