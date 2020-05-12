@@ -2,6 +2,7 @@
 
 ## Authors
 * Nadav Halahmi, 206784258
+* Adva Bitan, 314628090
 
 ## Notes
 
